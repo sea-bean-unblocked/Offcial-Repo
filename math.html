@@ -1,1 +1,223 @@
 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sea-bean</title>
+  <meta name="description" content="Welcome to sea bean"/>
+ <meta name="keywords" content="Sea Bean Math, sea bean math, SeaBeanMath, sea bean, sea math, bean math, ocean math, deep sea math, underwater math, math learning, school math, student math help, math practice, math games, math portal, math hub, math network, math interface"/>
+
+  <meta name="author" content="Sea-Bean"/>
+  <meta name="publisher" content="Sea-Bean"/>
+  <meta name="language" content="en"/>
+  <meta http-equiv="Content-Language" content="en"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#8B0000"/>
+  <meta name="msapplication-TileColor" content="#8B0000"/>
+  <meta name="msapplication-TileImage" content="/image/logo.png"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Sea-Bean"/>
+  <meta property="og:description" content="Sea-Bean"/>
+  <meta property="og:url" content="Sea-Bean"/>
+  <meta property="og:site_name" content="DEMON"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:image" content="/image/logo.png"/>
+  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:width" content="512"/>
+  <meta property="og:image:height" content="512"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <meta name="twitter:image" content="/image/logo.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/image/logo.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/logo.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/image/logo.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Inter:wght@300;600&display=swap" rel="stylesheet"/>
+  <meta name="msapplication-config" content="/browserconfig.xml"/>
+  <meta name="color-scheme" content="dark light"/>
+  <meta name="referrer" content="no-referrer-when-downgrade"/>
+  <meta name="viewport-fit" content="cover"/>
+  <meta name="theme" content="dark"/>
+
+  <meta name="rating" content="general"/>
+  <meta name="HandheldFriendly" content="true"/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1L129B4T5F"></script>
+    <link rel="stylesheet" href="/Index.css">
+</head>
+<div id="loader">
+    <div class="bubble-container">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <p style="color:#00d4ff; margin-top:30px;">Diving into Sea Math...</p>
+</div>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div data-iframe="/mafin.html" class="brand">
+      <img src="logo.png" class="logo" alt="sea logo" onerror="this.style.display='none'">
+      <div class="title">sea-bean</div>
+    </div>
+
+    <div class="menu" role="navigation" aria-label="Main navigation">
+      <button class="btn" data-iframe="/mafin.html" id="sea">
+        <img src="/logo/1.png" class="icon" alt="sea">
+        <span class="label">Home</span>
+      </button>
+
+      <button class="btn" data-iframe="https://latte-x.neocities.org/chnat" id="nav">
+        <img src="/logo/2.png" class="icon" alt="=">
+        <span class="label">Courses</span>
+      </button>
+      <button class="btn" data-iframe="/chat" id="nav">
+        <img src="/logo/2.png" class="icon" alt="=">
+        <span class="label">chat</span>
+      </button>
+      
+      <button class="btn" data-iframe="/info" id="nav-about">
+        <img src="/logo/4.png" class="icon" alt="About">
+        <span class="label">About</span>
+      </button>
+      
+    </div>
+  </aside>
+
+  <div id="notifications"></div>
+  <iframe id="contentFrame" src="/mafin.html" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+
+  <script>
+    const frame = document.getElementById("contentFrame");
+    const menu = document.querySelector(".menu");
+    const sidebar = document.getElementById("sidebar");
+
+
+    const originalMenuHTML = menu.innerHTML;
+
+
+    const ulMenuHTML = `
+      <button class="btn" id="back-btn">
+        <img src="svg/partners.svg" class="icon" alt="Back">
+        <span class="label">Back</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__5uznCxUN0pMMkxGRFJDMkFYQkhHNFJCS0xBRjFLRC4u', '_blank')">
+        <img src="svg/partner.svg" class="icon" alt="Partner?">
+        <span class="label">Partner With us?</span>
+      </button>
+
+      <button class="btn" id="nav-ul-nexora" aria-haspopup="true" aria-controls="ul-submenu">
+        <img src="image/nexora.png" class="icon no-filter">
+        <span class="label">Nexora</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://petezahgames.com/', '_blank')">
+        <img src="image/petezah.png" class="icon no-filter">
+        <span class="label">Petezah games</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://zeronet-17141622.codehs.me/', '_blank')">
+        <img src="image/zero.png" class="icon no-filter">
+        <span class="label">ZΞRO network</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://Boltunblocker.com/', '_blank')">
+        <img src="image/bolt.png" class="icon no-filter">
+        <span class="label">bolt network</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://discord.gg/5RnUdWt3fF', '_blank')">
+        <img src="image/axiom.png" class="icon no-filter">
+        <span class="label">AXIOM</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://t9os.vercel.app/', '_blank')">
+        <img src="image/t9.png" class="icon no-filter">
+        <span class="label">T9 OS</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://discord.gg/v2t8n99fRC', '_blank')">
+        <img src="image/hydra.png" class="icon no-filter">
+        <span class="label">Hydra Network</span>
+      </button>
+      
+      <button class="btn" onclick="window.open('https://learnstuffs-f3dwfhcvaka2cxgx.canadacentral-01.azurewebsites.net', '_blank')">
+        <img src="image/refined.png" class="icon no-filter">
+        <span class="label">Refined Stuff</span>
+      </button>
+    `;
+
+
+    function attachMenuListeners() {
+
+      document.querySelectorAll("[data-iframe]").forEach(btn => {
+
+        btn.onclick = null;
+        btn.addEventListener("click", () => {
+          frame.src = btn.dataset.iframe;
+          document.querySelectorAll(".btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+
+      const projectULBtn = document.getElementById("nav-ul");
+      if (projectULBtn) {
+        projectULBtn.onclick = (e) => {
+          e.preventDefault();
+          showULMenu();
+        };
+      }
+    }
+
+    function showULMenu() {
+      menu.innerHTML = ulMenuHTML;
+      attachULListeners();
+      sidebar.classList.add("showing-ul");
+    }
+
+    function attachULListeners() {
+      const backBtn = document.getElementById("back-btn");
+      if (backBtn) {
+        backBtn.onclick = () => {
+          menu.innerHTML = originalMenuHTML;
+          attachMenuListeners();
+        };
+      }
+
+      const openBtn = document.getElementById("ul-open");
+      if (openBtn) {
+        openBtn.onclick = () => {
+          window.open('https://projectul-soap64.web.app/', '_blank');
+        };
+      }
+
+      const nexoraBtn = document.getElementById("nav-ul-nexora");
+      if (nexoraBtn) {
+        nexoraBtn.onclick = () => {
+          window.open('https://thenexoraproject.xyz/', '_blank');
+        };
+      }
+    }
+
+    attachMenuListeners();
+    window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+});
+  </script>
+
+ 
+    </div>
+  </div>
+
+
+</body>
+</html>
+
