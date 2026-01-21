@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Water Text</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #020b16;
+}
+canvas {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+function resize() {
+  w = canvas.width = innerWidth;
+  h = canvas.height = innerHeight;
+}
+addEventListener("resize", resize);
+resize();
+
+let mouse = { x: w / 2, y: h / 2 };
+addEventListener("mousemove", e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+let t = 0;
+
+/* ===== TEXT SETUP ===== */
+const text = "SEA MATH";
+const letters = [];
+const spacing = 60;
+const baseY = h / 2;
+
+function setupText() {
+  letters.length = 0;
+  const startX = w / 2 - (text.length - 1) * spacing / 2;
+
+  [...text].forEach((char, i) => {
+    letters.push({
+      char,
+      x: startX + i * spacing,
+      y: baseY,
+      ox: startX + i * spacing,
+      oy: baseY,
+      vx: 0,
+      vy: 0,
+      offset: Math.random() * 10
+    });
+  });
+}
+setupText();
+addEventListener("resize", setupText);
+
+/* ===== DRAW LOOP ===== */
+function draw() {
+  t += 0.01;
+
+  // water background
+  const bg = ctx.createLinearGradient(0, 0, 0, h);
+  bg.addColorStop(0, "#0a2f4a");
+  bg.addColorStop(1, "#04131f");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, w, h);
+
+  // subtle wave light
+  for (let i = 0; i < 4; i++) {
+    const y = h * 0.45 + Math.sin(t * 1.5 + i) * 25;
+    const g = ctx.createRadialGradient(
+      mouse.x,
+      y,
+      0,
+      mouse.x,
+      y,
+      w * 0.6
+    );
+    g.addColorStop(0, "rgba(120,200,255,0.05)");
+    g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  // letters
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = "64px system-ui, sans-serif";
+
+  for (const l of letters) {
+    // float motion
+    const fy = Math.sin(t + l.offset) * 6;
+
+    // spring back to center
+    l.vx += (l.ox - l.x) * 0.02;
+    l.vy += (l.oy + fy - l.y) * 0.02;
+
+    // mouse push
+    const dx = l.x - mouse.x;
+    const dy = l.y - mouse.y;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 120) {
+      l.vx += dx * 0.04;
+      l.vy += dy * 0.04;
+    }
+
+    l.vx *= 0.85;
+    l.vy *= 0.85;
+
+    l.x += l.vx;
+    l.y += l.vy;
+
+    // glow
+    ctx.shadowColor = "rgba(140,220,255,0.7)";
+    ctx.shadowBlur = 18;
+    ctx.fillStyle = "#e9faff";
+    ctx.fillText(l.char, l.x, l.y);
+    ctx.shadowBlur = 0;
+  }
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
