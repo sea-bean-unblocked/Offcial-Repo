@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sea Math</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background: #001f3f; color: #e0f7fa; line-height: 1.6; scroll-behavior: smooth; }
+
+    
+    #loader {
+        position: fixed;
+        top:0; left:0; width:100%; height:100%;
+        background: #001f3f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        flex-direction: column;
+    }
+    .bubble-container { display: flex; gap: 10px; }
+    .bubble { width: 20px; height: 20px; background: #00d4ff; border-radius: 50%; animation: bubble 1s infinite ease-in-out; }
+    .bubble:nth-child(2) { animation-delay: 0.2s; }
+    .bubble:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bubble {
+        0% { transform: translateY(0); opacity: 1; }
+        50% { transform: translateY(-30px); opacity: 0.7; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: rgba(0, 32, 63, 0.95); color: #fff; position: sticky; top: 0; z-index: 100; }
+    nav .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 24px; }
+    nav .logo img { width: 45px; height: 45px; }
+    nav ul { display: flex; list-style: none; gap: 25px; }
+    nav ul li { cursor: pointer; transition: 0.3s; }
+    nav ul li:hover { color: #00d4ff; }
+
+    
+    .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 20px; background: linear-gradient(to bottom, #003366, #001f3f); position: relative; }
+    .hero img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 30px; border: 2px solid #00d4ff; }
+    .hero h1 { font-size: 48px; margin-bottom: 20px; color: #00d4ff; text-shadow: 1px 1px 5px #000; }
+    .hero p { font-size: 20px; max-width: 700px; margin-bottom: 30px; color: #cceeff; }
+    .hero .btn { padding: 15px 30px; background: #00d4ff; color: #001f3f; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+    .hero .btn:hover { background: #0090b3; color: #fff; }
+
+    
+    section { padding: 80px 50px; }
+    section h2 { text-align: center; font-size: 36px; margin-bottom: 40px; color: #00d4ff; text-shadow: 1px 1px 3px #000; }
+    .about, .courses { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+    .card { background: rgba(0, 32, 63, 0.8); padding: 20px; border-radius: 15px; box-shadow: 0 8px 15px rgba(0,0,0,0.3); width: 300px; text-align: center; transition: 0.3s; cursor: pointer; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.5); }
+    .card img { width: 80px; margin-bottom: 15px; filter: brightness(1.5); }
+    .card h3 { margin-bottom: 10px; font-size: 22px; color: #00d4ff; }
+    .card p { font-size: 16px; color: #cceeff; }
+
+  
+    footer { background: #001f3f; color: #cceeff; text-align: center; padding: 40px 20px; }
+    footer a { color: #00d4ff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    
+    .wave { position: relative; width: 100%; height: 100px; overflow: hidden; }
+    .wave svg { width: 100%; height: 100%; }
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: rise 10s infinite linear;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+    }
+       .bubbles-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+</style>
+</head>
+<body>
+
+
+
+
+
+<nav>
+    <div class="logo">
+        <img src="/logo.png" alt="Sea Math Logo">
+        Sea Math
+    </div>
+    <ul>
+        
+        <li onclick="scrollToSection('topics')">Topics</li>
+        <li onclick="scrollToSection('contact')">Contact</li>
+    </ul>
+</nav>
+
+<div class="bubbles-container">
+   
+    <div class="bubble" style="width: 20px; height: 20px; left: 10%; animation-duration: 12s;"></div>
+    <div class="bubble" style="width: 15px; height: 15px; left: 30%; animation-duration: 8s;"></div>
+    <div class="bubble" style="width: 25px; height: 25px; left: 50%; animation-duration: 15s;"></div>
+    <div class="bubble" style="width: 10px; height: 10px; left: 70%; animation-duration: 10s;"></div>
+    <div class="bubble" style="width: 18px; height: 18px; left: 85%; animation-duration: 13s;"></div>
+  </div>
+<section class="hero">
+    <img src="https://latte-x.neocities.org/Untitled%20design%20(7).png" alt="School Banner">
+    <h1>Welcome to Sea Math</h1>
+    <p>Guiding students through math, so they stay afloat in the deep end. (Click A Topic To start Your fun ☕</p>
+    <button class="btn" onclick="scrollToSection('topics')">Take a Swim?</button>
+</section>
+
+
+<div class="wave">
+<svg viewBox="0 0 500 150" preserveAspectRatio="none">
+  <path d="M0.00,49.98 C150.00,150.00 349.81,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #001f3f;"></path>
+</svg>
+</div>
+
+
+<section id="topics">
+    <h2>Math Topics</h2>
+    <div class="courses">
+        <div class="card" onclick="openTopic('/math')">
+            <img src="https://img.icons8.com/ios-filled/100/00d4ff/geometry.png" alt="Geometry">
+            <h3>Geometry</h3>
+            <p>Explore shapes, angles, theorems, and spatial reasoning.</p>
+        </div>
+        <div class="card" onclick="openTopic('/math')">
+            <img src="https://img.icons8.com/ios-filled/100/00d4ff/statistics.png" alt="Statistics">
+            <h3>Statistics</h3>
+            <p>Understand data, probability, graphs, and statistical analysis.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact"></section>
+<footer>
+    <p>&copy; 2026 Sea Math. All rights reserved.</p>
+    <p>Contact us: <a href="mailto:info@seamath.com">info@seamath.com</a></p>
+</footer>
+
+<script>
+
+window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+});
+
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if(element) element.scrollIntoView({ behavior: 'smooth' });
+}
+
+
+function openTopic(url) {
+    window.open(url, '_blank'); // Opens in new tab
+}
+</script>
+<script>
+window.onload = function() {
+  alert("Click On A Math Topic To Open A G@me Site Ok - Mr Coffee");
+};
+</script>
+</body>
+</html>
